@@ -17,6 +17,12 @@ class App extends React.Component{
     })
   }
 
+  clearEntry = () => {
+    this.setState({
+      value: "0"
+    })
+  }
+
   backSpace = () => {
     this.setState({
       value: this.state.value.substring(0, this.state.value.length-1)
@@ -60,7 +66,7 @@ class App extends React.Component{
       <div className="parent">
         <div className="div1">{this.state.value}</div>
         <div className="div2">%</div>
-        <div className="div3">CE</div>
+        <div className="div3" onClick={this.clearEntry}>CE</div>
         <div className="div4" onClick={this.clear}>C</div>
         <div className="div5" onClick={this.backSpace}>BackSpace</div>
         <div className="div6" onClick={this.number}>7</div>
