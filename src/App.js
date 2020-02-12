@@ -48,69 +48,75 @@ class App extends React.Component{
     switch(event.target.innerText){
 
       case "+":
-       
-        if(this.state.equation === ""){
-          this.setState({
-            equation: this.state.value + " + ",
-            value: ""
-          })
-        }else{
-          this.setState({
-            equation: this.state.equation + this.state.value + " + ",
-            value: ""
-          })
-
+        
+        if(this.state.value !== ""){
+          if(this.state.equation === "" ){
+            this.setState({
+              equation: this.state.value + "+",
+              value: ""
+            })
+          }else{
+            this.setState({
+              equation: this.state.equation + this.state.value + "+",
+              value: ""
+            })
+  
+          }
         }
+
 
         break;
 
       case "-":
-       
-        if(this.state.equation === ""){
-          this.setState({
-            equation: this.state.value + " - ",
-            value: ""
-          })
-        }else{
-          this.setState({
-            equation: this.state.equation + this.state.value + " - ",
-            value: ""
-          })
+        if(this.state.value !== ""){
+          if(this.state.equation === ""){
+            this.setState({
+              equation: this.state.value + "-",
+              value: ""
+            })
+          }else{
+            this.setState({
+              equation: this.state.equation + this.state.value + "-",
+              value: ""
+            })
 
+          }
         }
 
         break;
 
       case "x":
-       
-        if(this.state.equation === ""){
-          this.setState({
-            equation: this.state.value + " * ",
-            value: ""
-          })
-        }else{
-          this.setState({
-            equation: this.state.equation + this.state.value + " * ",
-            value: ""
-          })
+        if(this.state.value !== ""){
+          if(this.state.equation === ""){
+            this.setState({
+              equation: this.state.value + "*",
+              value: ""
+            })
+          }else{
+            this.setState({
+              equation: this.state.equation + this.state.value + "*",
+              value: ""
+            })
 
+          }
         }
 
         break;
 
       case "/":
-       
-        if(this.state.equation === ""){
-          this.setState({
-            equation: this.state.value + " / ",
-            value: ""
-          })
-        }else{
-          this.setState({
-            equation: this.state.equation + this.state.value + " / ",
-            value: ""
-          })
+        if(this.state.value !== ""){
+          if(this.state.equation === ""){
+            this.setState({
+              equation: this.state.value + "/",
+              value: ""
+            })
+          }else{
+            this.setState({
+              equation: this.state.equation + this.state.value + "/",
+              value: ""
+            })
 
+          }
         }
 
         break;
