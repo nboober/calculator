@@ -49,7 +49,7 @@ class App extends React.Component{
 
       case "+":
         
-        if(this.state.value !== ""){
+        if(this.state.value !== "" && this.state.value !== "."){
           if(this.state.equation === "" ){
             this.setState({
               equation: this.state.value + "+",
@@ -68,7 +68,7 @@ class App extends React.Component{
         break;
 
       case "-":
-        if(this.state.value !== ""){
+        if(this.state.value !== "" && this.state.value !== "."){
           if(this.state.equation === ""){
             this.setState({
               equation: this.state.value + "-",
@@ -86,7 +86,7 @@ class App extends React.Component{
         break;
 
       case "x":
-        if(this.state.value !== ""){
+        if(this.state.value !== "" && this.state.value !== "."){
           if(this.state.equation === ""){
             this.setState({
               equation: this.state.value + "*",
@@ -104,7 +104,7 @@ class App extends React.Component{
         break;
 
       case "/":
-        if(this.state.value !== ""){
+        if(this.state.value !== "" && this.state.value !== "."){
           if(this.state.equation === ""){
             this.setState({
               equation: this.state.value + "/",
@@ -125,14 +125,21 @@ class App extends React.Component{
   }
 
   answer = () => {
-    this.setState({
-      equation: this.state.equation + this.state.value
-    },()=>{
+
+
+    if(this.state.value !== "" && this.state.value !== "."){
+
       this.setState({
-        value: eval(this.state.equation),
-        equation: ""
+        equation: this.state.equation + this.state.value
+      },()=>{
+        this.setState({
+          value: eval(this.state.equation),
+          equation: ""
+        })
       })
-    })
+
+    }
+
   }
 
   render(){
