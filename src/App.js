@@ -5,21 +5,21 @@ class App extends React.Component{
   constructor(){
     super();
     this.state={
-      total: 0,
-      value: "0"
+      value: "",
+      equation: ""
     }
   }
 
   clear = () => {
     this.setState({
-      total: 0,
-      value: "0"
+      value: "",
+      equation: ""
     })
   }
 
   clearEntry = () => {
     this.setState({
-      value: "0"
+      value: ""
     })
   }
 
@@ -44,81 +44,73 @@ class App extends React.Component{
   }
 
   calculate = (event) => {
+
     switch(event.target.innerText){
 
       case "+":
-
-        if(this.state.total === 0){
+       
+        if(this.state.equation === ""){
           this.setState({
-            total: parseInt(this.state.value),
-            value: "0"
+            equation: this.state.value + " + ",
+            value: ""
           })
-
         }else{
-          
           this.setState({
-          total: this.state.total += parseInt(this.state.value),
-          value: "0"
+            equation: this.state.equation + this.state.value + " + ",
+            value: ""
           })
 
         }
 
-        
         break;
 
       case "-":
-
-        if(this.state.total === 0){
+       
+        if(this.state.equation === ""){
           this.setState({
-            total: parseInt(this.state.value),
-            value: "0"
+            equation: this.state.value + " - ",
+            value: ""
           })
-
         }else{
-          
           this.setState({
-          total: this.state.total -= parseInt(this.state.value),
-          value: "0"
+            equation: this.state.equation + this.state.value + " - ",
+            value: ""
           })
-          
+
         }
 
         break;
 
-      case "X":
-
-        if(this.state.total === 0){
+      case "x":
+       
+        if(this.state.equation === ""){
           this.setState({
-            total: parseInt(this.state.value),
-            value: "0"
+            equation: this.state.value + " * ",
+            value: ""
           })
-
         }else{
-          
           this.setState({
-          total: this.state.total *= parseInt(this.state.value),
-          value: "0"
+            equation: this.state.equation + this.state.value + " * ",
+            value: ""
           })
-          
+
         }
 
         break;
 
       case "/":
-
-        if(this.state.total === 0){
+       
+        if(this.state.equation === ""){
           this.setState({
-            total: parseInt(this.state.value),
-            value: "0"
+            equation: this.state.value + " / ",
+            value: ""
           })
-
         }else{
-          
           this.setState({
-          total: this.state.total /= parseInt(this.state.value),
-          value: "0"
+            equation: this.state.equation + this.state.value + " / ",
+            value: ""
           })
-          
+
         }
 
         break;
@@ -126,10 +118,24 @@ class App extends React.Component{
     }
   }
 
+  answer = () => {
+    this.setState({
+      equation: this.state.equation + this.state.value
+    },()=>{
+      this.setState({
+        value: eval(this.state.equation),
+        equation: ""
+      })
+    })
+  }
+
   render(){
     return(
       <div className="parent">
-        <div className="div1">{this.state.value}</div>
+        <div className="div1">
+          {this.state.equation}<br/>
+          {this.state.value}
+        </div>
         <div className="div2">%</div>
         <div className="div3" onClick={this.clearEntry}>CE</div>
         <div className="div4" onClick={this.clear}>C</div>
@@ -137,7 +143,7 @@ class App extends React.Component{
         <div className="div6" onClick={this.number}>7</div>
         <div className="div7" onClick={this.number}>8</div>
         <div className="div8" onClick={this.number}>9</div>
-        <div className="div9" onClick={this.calculate}>X</div>
+        <div className="div9" onClick={this.calculate}>x</div>
         <div className="div10" onClick={this.number}>4</div>
         <div className="div11" onClick={this.number}>5</div>
         <div className="div12" onClick={this.number}>6</div>
@@ -149,7 +155,7 @@ class App extends React.Component{
         <div className="div18" onClick={this.calculate}>/</div>
         <div className="div19" onClick={this.number}>0</div>
         <div className="div20" onClick={this.number}>.</div>
-        <div className="div21" >=</div>
+        <div className="div21" onClick={this.answer}>=</div>
       </div>
     )
   }
