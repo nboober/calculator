@@ -1,7 +1,8 @@
 # Calculator App
 
 ## About the Application
-### Just a basic calculator application. This application has all of the basic functinoality of a calculator.
+
+Just a basic calculator application. This application has all of the basic functionality of a calculator.
 
 ## How To Install
 
