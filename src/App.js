@@ -45,17 +45,82 @@ class App extends React.Component{
 
   calculate = (event) => {
     switch(event.target.innerText){
+
       case "+":
-        console.log("+");
+
+        if(this.state.total === 0){
+          this.setState({
+            total: parseInt(this.state.value),
+            value: "0"
+          })
+
+        }else{
+          
+          this.setState({
+          total: this.state.total += parseInt(this.state.value),
+          value: "0"
+          })
+
+        }
+
+        
         break;
+
       case "-":
-        console.log("-");
+
+        if(this.state.total === 0){
+          this.setState({
+            total: parseInt(this.state.value),
+            value: "0"
+          })
+
+        }else{
+          
+          this.setState({
+          total: this.state.total -= parseInt(this.state.value),
+          value: "0"
+          })
+          
+        }
+
         break;
+
       case "X":
-        console.log("X");
+
+        if(this.state.total === 0){
+          this.setState({
+            total: parseInt(this.state.value),
+            value: "0"
+          })
+
+        }else{
+          
+          this.setState({
+          total: this.state.total *= parseInt(this.state.value),
+          value: "0"
+          })
+          
+        }
+
         break;
+
       case "/":
-        console.log("/");
+
+        if(this.state.total === 0){
+          this.setState({
+            total: parseInt(this.state.value),
+            value: "0"
+          })
+
+        }else{
+          
+          this.setState({
+          total: this.state.total /= parseInt(this.state.value),
+          value: "0"
+          })
+          
+        }
+
         break;
       
     }
@@ -71,7 +136,7 @@ class App extends React.Component{
         <div className="div5" onClick={this.backSpace}>BackSpace</div>
         <div className="div6" onClick={this.number}>7</div>
         <div className="div7" onClick={this.number}>8</div>
-        <div className="div8" onClick={this.Number}>9</div>
+        <div className="div8" onClick={this.number}>9</div>
         <div className="div9" onClick={this.calculate}>X</div>
         <div className="div10" onClick={this.number}>4</div>
         <div className="div11" onClick={this.number}>5</div>
