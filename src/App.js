@@ -120,6 +120,24 @@ class App extends React.Component{
         }
 
         break;
+
+      case "%":
+        if(this.state.value !== "" && this.state.value !== "."){
+          if(this.state.equation === ""){
+            this.setState({
+              equation: this.state.value + "%",
+              value: ""
+            })
+          }else{
+            this.setState({
+              equation: this.state.equation + this.state.value + "%",
+              value: ""
+            })
+
+          }
+        }
+
+        break;
       
     }
   }
@@ -149,7 +167,7 @@ class App extends React.Component{
           {this.state.equation}<br/>
           {this.state.value}
         </div>
-        <div className="div2">%</div>
+        <div className="div2" onClick={this.calculate}>%</div>
         <div className="div3" onClick={this.clearEntry}>CE</div>
         <div className="div4" onClick={this.clear}>C</div>
         <div className="div5" onClick={this.backSpace}>BackSpace</div>
