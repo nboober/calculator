@@ -6,23 +6,28 @@ class App extends React.Component{
     super();
     this.state={
       total: 0,
-      valueOne: 0,
-      valueTwo: 0
+      value: "0"
     }
   }
 
   backSpace = () => {
-    console.log("backspace")
+    this.setState({
+      value: this.state.value.substring(0, this.state.value.length-1)
+    })
   }
 
   number = (event) => {
-    console.log(event.target.innerText)
+    this.setState({
+      value: this.state.value + event.target.innerText
+    })
   }
+
+  calculate = (event) => {}
 
   render(){
     return(
       <div className="parent">
-        <div className="div1">{this.state.total}</div>
+        <div className="div1">{this.state.value}</div>
         <div className="div2">%</div>
         <div className="div3">CE</div>
         <div className="div4">C</div>
