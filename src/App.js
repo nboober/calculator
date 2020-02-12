@@ -17,12 +17,36 @@ class App extends React.Component{
   }
 
   number = (event) => {
-    this.setState({
-      value: this.state.value + event.target.innerText
-    })
+
+    if(event.target.innerText === "." && !this.state.value.includes(".")){
+      this.setState({
+        value: this.state.value + event.target.innerText
+      })
+    }else if(event.target.innerText !== "."){
+      this.setState({
+        value: this.state.value + event.target.innerText
+      })
+    }
+
   }
 
-  calculate = (event) => {}
+  calculate = (event) => {
+    switch(event.target.innerText){
+      case "+":
+        console.log("+");
+        break;
+      case "-":
+        console.log("-");
+        break;
+      case "X":
+        console.log("X");
+        break;
+      case "/":
+        console.log("/");
+        break;
+      
+    }
+  }
 
   render(){
     return(
@@ -46,7 +70,7 @@ class App extends React.Component{
         <div className="div17" onClick={this.calculate}>+</div>
         <div className="div18" onClick={this.calculate}>/</div>
         <div className="div19" onClick={this.number}>0</div>
-        <div className="div20" >.</div>
+        <div className="div20" onClick={this.number}>.</div>
         <div className="div21" >=</div>
       </div>
     )
