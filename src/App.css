@@ -13,6 +13,7 @@
 
   .parent > *{
     font-size: 25px;
+    text-align: center;
   }
 
   .div1 { grid-area: 1 / 1 / 2 / 5; background-color: gainsboro; border: 1px solid black}

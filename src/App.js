@@ -2,6 +2,14 @@ import React from 'react';
 import './App.css';
 
 class App extends React.Component{
+  constructor(){
+    super();
+    this.state={
+      total: 0,
+      valueOne: 0,
+      valueTwo: 0
+    }
+  }
   render(){
     return(
       <div className="parent">
