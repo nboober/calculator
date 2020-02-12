@@ -14,6 +14,11 @@
   .parent > *{
     font-size: 25px;
     text-align: center;
+    cursor: pointer;
+  }
+
+  .parent > *:hover{
+    background-color: hotpink;
   }
 
   .div1 { grid-area: 1 / 1 / 2 / 5; background-color: gainsboro; border: 1px solid black}
