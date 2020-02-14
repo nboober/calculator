@@ -172,7 +172,8 @@ class App extends React.Component{
           {this.state.value}
         </div>
         <div className="div2" onClick={this.calculate}>%</div>
-        <div className="div3" onClick={this.clearEntry}>CE</div>
+        {/* <div className="div3" onClick={this.clearEntry}>CE</div> */}
+        <div className="div3" onClick={this.calculate}>/</div>
         <div className="div4" onClick={this.clear}>C</div>
         <div className="div5" onClick={this.backSpace}>BackSpace</div>
         <div className="div6" onClick={this.number}>7</div>
@@ -187,7 +188,7 @@ class App extends React.Component{
         <div className="div15" onClick={this.number}>2</div>
         <div className="div16" onClick={this.number}>3</div>
         <div className="div17" onClick={this.calculate}>+</div>
-        <div className="div18" onClick={this.calculate}>/</div>
+        <div className="div18" >+/-</div>
         <div className="div19" onClick={this.number}>0</div>
         <div className="div20" onClick={this.number}>.</div>
         <div className="div21" onClick={this.answer}>=</div>
