@@ -29,6 +29,18 @@ class App extends React.Component{
     })
   }
 
+  negPos = () => {
+    if(this.state.value.charAt(0) === "-"){
+      this.setState({
+        value: this.state.value.substring(1,this.state.value.length)
+      })
+    }else{
+      this.setState({
+        value: "-" + this.state.value
+      })
+    }
+  }
+
   number = (event) => {
 
     if(event.target.innerText === "." && !this.state.value.includes(".")){
@@ -188,7 +200,7 @@ class App extends React.Component{
         <div className="div15" onClick={this.number}>2</div>
         <div className="div16" onClick={this.number}>3</div>
         <div className="div17" onClick={this.calculate}>+</div>
-        <div className="div18" >+/-</div>
+        <div className="div18" onClick={this.negPos}>+/-</div>
         <div className="div19" onClick={this.number}>0</div>
         <div className="div20" onClick={this.number}>.</div>
         <div className="div21" onClick={this.answer}>=</div>
